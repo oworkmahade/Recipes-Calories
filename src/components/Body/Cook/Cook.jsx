@@ -2,8 +2,8 @@
 
 const Cook = () => {
   return (
-    <div className="border-blue-600 border-2 m-2 p-2 w-1/3">
-      <h1>Cook Section</h1>
+    <div className="border-gray-400 border m-4 p-4 w-1/3 rounded-3xl">
+      <h1 className="text-xl font-bold p-4 border-b">Want to cook: {}</h1>
     </div>
   );
 };

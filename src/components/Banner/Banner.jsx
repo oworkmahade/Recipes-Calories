@@ -2,7 +2,7 @@
 
 const Banner = () => {
   return (
-    <div className="border-green-600 border-2 m-4 p-4">
+    <div className=" m-4 p-4">
       <div
         className="hero w-full min-h-96 rounded-2xl"
         style={{
@@ -22,10 +22,10 @@ const Banner = () => {
               personalized experience helps you cook smarter.
             </p>
             <div className="md:flex md:flex-row  md:gap-4 justify-center">
-              <button className="btn btn-outline btn-success rounded-3xl p-4 bg-green-600">
+              <button className="btn btn-outline btn-success rounded-3xl p-4 bg-green-600 text-black font-semibold">
                 Explore Now
               </button>
-              <button className="btn btn-primary border-white border rounded-3xl p-4">
+              <button className="btn btn-primary border-white border rounded-3xl p-4 font-semibold               ">
                 Our Feedback
               </button>
             </div>

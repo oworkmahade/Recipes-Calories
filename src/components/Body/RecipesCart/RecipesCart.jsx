@@ -43,6 +43,11 @@ const RecipesCart = ({ foodBlog }) => {
           <RiFireLine /> <span>{calories} calories</span>{" "}
         </div>
       </div>
+      <div className="md:flex md:flex-row p-4">
+        <button className="btn btn-primary rounded-3xl p-4 bg-green-600 font-semibold">
+          Want to Cook
+        </button>
+      </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import Cook from "../Cook/Cook";
 
 const Recipes = () => {
   return (
-    <div className="border-black border-2 m-4 p-4">
+    <div className="  p-4">
       <h1 className="text-3xl font-bold">Our Recipes</h1>
       <p className="text-sm my-4 w-2/3 mx-auto font-light">
         Discover our restaurant recipes crafted with fresh ingredients and
