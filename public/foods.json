@@ -1,0 +1,92 @@
+[
+  {
+    "recipe_id": "R001",
+    "recipe_name": "Grilled Chicken Delight",
+    "recipe_image": "https://example.com/images/grilled-chicken.jpg",
+    "short_description": "Juicy grilled chicken marinated with spices and herbs.",
+    "ingredients": [
+      "550 g chicken",
+      "2 tbsp olive oil",
+      "1 tsp garlic paste",
+      "1 tsp black pepper",
+      "1 tsp salt"
+    ],
+    "preparing_time": 30,
+    "calories": 320
+  },
+  {
+    "recipe_id": "R002",
+    "recipe_name": "Vegetable Stir Fry",
+    "recipe_image": "https://example.com/images/vegetable-stir-fry.jpg",
+    "short_description": "A healthy mix of fresh vegetables stir-fried with sauce.",
+    "ingredients": [
+      "200 g broccoli",
+      "150 g carrot",
+      "120 ml soy sauce",
+      "100 g bell pepper",
+      "2 tbsp vegetable oil"
+    ],
+    "preparing_time": 20,
+    "calories": 250
+  },
+  {
+    "recipe_id": "R003",
+    "recipe_name": "Creamy Mushroom Pasta",
+    "recipe_image": "https://example.com/images/mushroom-pasta.jpg",
+    "short_description": "Rich and creamy pasta with sautéed mushrooms.",
+    "ingredients": [
+      "400 g mushroom",
+      "250 g pasta",
+      "200 ml cream",
+      "2 cloves garlic",
+      "50 g parmesan cheese"
+    ],
+    "preparing_time": 25,
+    "calories": 450
+  },
+  {
+    "recipe_id": "R004",
+    "recipe_name": "Classic Beef Burger",
+    "recipe_image": "https://example.com/images/beef-burger.jpg",
+    "short_description": "Classic beef burger with cheese and fresh vegetables.",
+    "ingredients": [
+      "300 g beef patty",
+      "2 burger buns",
+      "2 slices cheese",
+      "50 g lettuce",
+      "30 g tomato"
+    ],
+    "preparing_time": 35,
+    "calories": 520
+  },
+  {
+    "recipe_id": "R005",
+    "recipe_name": "Basil Chicken Curry",
+    "recipe_image": "https://example.com/images/basil-chicken.jpg",
+    "short_description": "Flavorful chicken curry cooked with fresh basil leaves.",
+    "ingredients": [
+      "550 g chicken",
+      "200 g basil leaf",
+      "1 onion",
+      "2 tbsp curry paste",
+      "150 ml coconut milk"
+    ],
+    "preparing_time": 40,
+    "calories": 390
+  },
+  {
+    "recipe_id": "R006",
+    "recipe_name": "Fresh Fruit Salad",
+    "recipe_image": "https://example.com/images/fruit-salad.jpg",
+    "short_description": "Refreshing fruit salad perfect for a healthy snack.",
+    "ingredients": [
+      "100 g apple",
+      "100 g banana",
+      "100 g orange",
+      "50 g grapes",
+      "1 tbsp honey"
+    ],
+    "preparing_time": 15,
+    "calories": 180
+  }
+]
