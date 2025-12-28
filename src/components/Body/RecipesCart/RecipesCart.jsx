@@ -1,5 +1,7 @@
 import { recipeImages } from "../../../assets/images";
 import PropTypes from "prop-types";
+import { MdOutlineWatchLater } from "react-icons/md";
+import { RiFireLine } from "react-icons/ri";
 
 const RecipesCart = ({ foodBlog }) => {
   const {
@@ -13,28 +15,34 @@ const RecipesCart = ({ foodBlog }) => {
   return (
     <div
       className="rounded-3xl"
-      style={{ border: "1px solid gray", margin: "10px", padding: "10px" }}
+      style={{ border: "1px solid gray", margin: "20px", padding: "10px" }}
     >
       <img
-        className="rounded-3xl p-4"
+        className="rounded-3xl p-4 object-cover w-[300px] h-48"
         src={recipeImages[recipe_id]}
         alt={recipe_name}
-        width={300}
       />
-      <h2>{recipe_name}</h2>
-      <p>{short_description}</p>
+      <h2 className="font-bold text-left p-4">{recipe_name}</h2>
+      <p className="text-left p-4 border-b font-light">{short_description}</p>
 
-      <div>
-        <strong>Ingredients:</strong>
-        <ul>
+      <div className="text-left p-4 border-b ">
+        <strong>Ingredients: {ingredients.length}</strong>
+        <ul className="list-disc ml-10 font-light">
           {ingredients.map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </ul>
       </div>
 
-      <p>Preparing Time: {preparing_time} min</p>
-      <p>Calories: {calories}</p>
+      <div className="md:flex md: flex-row justify-between items-center gap-2 mx-4 p-4 font-light">
+        <div className="md:flex md:flex-row justify-between items-center gap-2">
+          <MdOutlineWatchLater /> <span> {preparing_time} min</span>
+        </div>
+
+        <div className="md:flex md:flex-row justify-between items-center gap-2">
+          <RiFireLine /> <span>{calories} calories</span>{" "}
+        </div>
+      </div>
     </div>
   );
 };
