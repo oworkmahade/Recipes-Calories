@@ -1,9 +1,42 @@
-import React from "react";
-// import PropTypes from 'prop-types';
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import RecipesCarts from "../RecipesCarts/RecipesCarts";
 import Cook from "../Cook/Cook";
+import { useState } from "react";
+import {
+  addCountToLs,
+  getStoredCountValue,
+} from "../../../utilities/localStorage";
 
 const Recipes = () => {
+  const [foods, setFood] = useState([]);
+  const [count, setCount] = useState(0);
+  const [cookItems, setCookItems] = useState([]);
+
+  useEffect(() => {
+    fetch("foods.json")
+      .then((res) => res.json())
+      .then((data) => setFood(data));
+  }, []);
+
+  const handleCount = (food) => {
+    const newCount = count + 1;
+    setCount(newCount);
+    addCountToLs(newCount);
+    handleCookItem(food);
+  };
+
+  const handleCookItem = (food) => {
+    const newCookItem = [...cookItems, food];
+    setCookItems(newCookItem);
+  };
+
+  useEffect(() => {
+    const lsStoredCount = getStoredCountValue();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCount(lsStoredCount);
+  }, []);
+
   return (
     <div className="  p-4">
       <h1 className="text-3xl font-bold">Our Recipes</h1>
@@ -14,15 +47,15 @@ const Recipes = () => {
         authentic dining experiences to your table.
       </p>
       <div className="md:flex md:flex-row md:gap-4 justify-between">
-        <RecipesCarts></RecipesCarts>
-        <Cook></Cook>
+        <RecipesCarts handleCount={handleCount} foods={foods}></RecipesCarts>
+        <Cook count={count} cookItems={cookItems}></Cook>
       </div>
     </div>
   );
 };
 
-// Recipes.propTypes = {
-
-// };
+Recipes.propTypes = {
+  handleCount: PropTypes.func.isRequired,
+};
 
 export default Recipes;

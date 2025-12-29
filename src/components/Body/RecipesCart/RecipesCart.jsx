@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { RiFireLine } from "react-icons/ri";
 
-const RecipesCart = ({ foodBlog }) => {
+const RecipesCart = ({ food, handleCount }) => {
   const {
     recipe_id,
     recipe_name,
@@ -11,7 +11,7 @@ const RecipesCart = ({ foodBlog }) => {
     ingredients,
     preparing_time,
     calories,
-  } = foodBlog;
+  } = food;
   return (
     <div
       className="rounded-3xl"
@@ -44,7 +44,10 @@ const RecipesCart = ({ foodBlog }) => {
         </div>
       </div>
       <div className="md:flex md:flex-row p-4">
-        <button className="btn btn-primary rounded-3xl p-4 bg-green-600 font-semibold">
+        <button
+          onClick={() => handleCount(food)}
+          className="btn btn-primary rounded-3xl p-4 bg-green-600 font-semibold"
+        >
           Want to Cook
         </button>
       </div>
@@ -53,7 +56,8 @@ const RecipesCart = ({ foodBlog }) => {
 };
 
 RecipesCart.propTypes = {
-  foodBlog: PropTypes.object.isRequired,
+  food: PropTypes.object.isRequired,
+  handleCount: PropTypes.func.isRequired,
 };
 
 export default RecipesCart;

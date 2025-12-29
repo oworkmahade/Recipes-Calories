@@ -1,27 +1,22 @@
-// import PropTypes from "prop-types";
-
-import { useEffect, useState } from "react";
 import RecipesCart from "../RecipesCart/RecipesCart";
+import PropTypes from "prop-types";
 
-const RecipesCarts = () => {
-  const [foodBlogs, setFoodBlogs] = useState([]);
-  // console check
-  console.log(foodBlogs);
-  useEffect(() => {
-    fetch("foods.json")
-      .then((res) => res.json())
-      .then((data) => setFoodBlogs(data));
-  }, []);
-
+const RecipesCarts = ({ foods, handleCount }) => {
   return (
     <div className=" w-2/3 recipes-grid ">
-      {foodBlogs.map((foodBlog) => (
-        <RecipesCart key={foodBlog.recipe_id} foodBlog={foodBlog}></RecipesCart>
+      {foods.map((food) => (
+        <RecipesCart
+          key={food.recipe_id}
+          food={food}
+          handleCount={handleCount}
+        ></RecipesCart>
       ))}
     </div>
   );
 };
 
-RecipesCarts.propTypes = {};
+RecipesCarts.propTypes = {
+  handleCount: PropTypes.func.isRequired,
+};
 
 export default RecipesCarts;
