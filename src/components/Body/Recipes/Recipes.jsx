@@ -6,6 +6,8 @@ import { useState } from "react";
 import {
   addCountToLs,
   getStoredCountValue,
+  addFoodsToLs,
+  getStoredCookItem,
 } from "../../../utilities/localStorage";
 
 const Recipes = () => {
@@ -19,17 +21,23 @@ const Recipes = () => {
       .then((data) => setFood(data));
   }, []);
 
+  const handleCookItem = (food) => {
+    const newCookItem = [...cookItems, food];
+    setCookItems(newCookItem);
+  };
   const handleCount = (food) => {
     const newCount = count + 1;
     setCount(newCount);
     addCountToLs(newCount);
     handleCookItem(food);
+    addFoodsToLs(food);
   };
 
-  const handleCookItem = (food) => {
-    const newCookItem = [...cookItems, food];
-    setCookItems(newCookItem);
-  };
+  useEffect(() => {
+    const storedLsCookItems = getStoredCookItem();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCookItems(storedLsCookItems);
+  }, []);
 
   useEffect(() => {
     const lsStoredCount = getStoredCountValue();
