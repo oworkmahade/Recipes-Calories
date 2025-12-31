@@ -50,6 +50,8 @@ const addCookingCountToLs = (newCount) => {
 // add food to local storage
 const addFoodsToLs = (food) => {
   const storedItems = getStoredCookItem();
+  const exists = storedItems.find((item) => item.recipe_id === food.recipe_id);
+  if (exists) return;
 
   storedItems.push({
     recipe_id: food.recipe_id,
