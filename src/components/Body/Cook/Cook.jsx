@@ -10,6 +10,8 @@ import {
   removeCookItemFromLs,
   addTotalTimeToLs,
   getTotalTimeFromLs,
+  addTotalCaloriesToLs,
+  getStoredCaloriesLs,
 } from "../../../utilities/localStorage";
 
 const Cook = ({
@@ -29,6 +31,12 @@ const Cook = ({
     setTotalTime(storedPreparingTime);
   }, []);
 
+  useEffect(() => {
+    const storedCalories = getStoredCaloriesLs();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setTotalCalories(storedCalories);
+  }, []);
+
   const newCookingItem = (cookItem) => {
     const newCookingItem = [...cookingItems, cookItem];
     setCookingItems(newCookingItem);
@@ -43,6 +51,7 @@ const Cook = ({
   const handleCalories = (calories) => {
     const newCalories = totalCalories + calories;
     setTotalCalories(newCalories);
+    addTotalCaloriesToLs(newCalories);
   };
   // preparing button function
   const handleCookingCount = (cookItem) => {

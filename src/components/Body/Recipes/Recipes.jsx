@@ -9,6 +9,7 @@ import {
   addFoodsToLs,
   getStoredCookItem,
 } from "../../../utilities/localStorage";
+import { toast } from "react-toastify";
 
 const Recipes = () => {
   const [foods, setFood] = useState([]);
@@ -42,8 +43,18 @@ const Recipes = () => {
   const handleCookItem = (food) => {
     const newCookItem = [...cookItems, food];
     setCookItems(newCookItem);
+    toast.success("Recipe added to Want to Cook !");
   };
   const handleCount = (food) => {
+    const isWantToCookAlreadyAdded = cookItems.find(
+      (item) => item.recipe_id === food.recipe_id
+    );
+
+    if (isWantToCookAlreadyAdded) {
+      toast.error("This recipe is already added to Want to Cook !");
+      return;
+    }
+
     const newCount = count + 1;
     setCount(newCount);
     addCountToLs(newCount);

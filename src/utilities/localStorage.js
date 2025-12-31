@@ -93,9 +93,22 @@ const getTotalTimeFromLs = () => {
   return storedPreparingTime;
 };
 
-// add calories to ls
+// add preparing time to ls
 const addTotalTimeToLs = (time) => {
   localStorage.setItem("preparingTime", JSON.stringify(time));
+};
+
+// get calories from local storage
+
+const getStoredCaloriesLs = () => {
+  const storedCaloriesLs = JSON.parse(localStorage.getItem("calories")) || 0;
+  return storedCaloriesLs;
+};
+
+// add calories to local store
+
+const addTotalCaloriesToLs = (newCalories) => {
+  localStorage.setItem("calories", JSON.stringify(newCalories));
 };
 
 export {
@@ -110,4 +123,6 @@ export {
   removeCookItemFromLs,
   addTotalTimeToLs,
   getTotalTimeFromLs,
+  addTotalCaloriesToLs,
+  getStoredCaloriesLs,
 };

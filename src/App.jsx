@@ -2,6 +2,7 @@ import "./App.css";
 import Banner from "./components/Banner/Banner";
 import Recipes from "./components/Body/Recipes/Recipes";
 import NavBar from "./components/NavBar/NavBar";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
         <Banner></Banner>
         <Recipes></Recipes>
       </div>
+      {/* Toast container */}
+      <ToastContainer position="top-right" autoClose={2000}></ToastContainer>
     </>
   );
 }
