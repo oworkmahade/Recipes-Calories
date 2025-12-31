@@ -95,9 +95,9 @@ const Cook = ({
         </thead>
 
         <tbody>
-          {wantToCookItems.map((cookItem, idx) => (
+          {wantToCookItems.map((cookItem) => (
             <Preparing
-              key={idx}
+              key={cookItem.recipe_id}
               cookItem={cookItem}
               handleCookingCount={handleCookingCount}
             />
