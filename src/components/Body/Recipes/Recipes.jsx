@@ -15,6 +15,10 @@ const Recipes = () => {
   const [count, setCount] = useState(0);
   const [cookItems, setCookItems] = useState([]);
 
+  // const handleRemoveClickedCookItem = (id) => {
+  //   console.log("removed item id: ", id);
+  // };
+
   const handleCookDecrease = () => {
     const newCookingCount = count - 1;
     setCount(newCookingCount);
@@ -66,6 +70,7 @@ const Recipes = () => {
           count={count}
           cookItems={cookItems}
           handleCookDecrease={handleCookDecrease}
+          // handleRemoveClickedCookItem={handleRemoveClickedCookItem}
         ></Cook>
       </div>
     </div>

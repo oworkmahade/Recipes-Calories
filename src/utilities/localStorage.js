@@ -49,9 +49,10 @@ const addCookingCountToLs = (newCount) => {
 
 // add food to local storage
 const addFoodsToLs = (food) => {
-  //   console.log(food.recipe_name, food.preparing_time, food.calories);
   const storedItems = getStoredCookItem();
+
   storedItems.push({
+    recipe_id: food.recipe_id,
     recipe_name: food.recipe_name,
     preparing_time: food.preparing_time,
     calories: food.calories,
@@ -69,6 +70,7 @@ const getStoredCookingItems = () => {
 const addCookingFoodToLs = (cookItem) => {
   const storedItems = getStoredCookingItems();
   storedItems.push({
+    recipe_id: cookItem.recipe_id,
     recipe_name: cookItem.recipe_name,
     preparing_time: cookItem.preparing_time,
     calories: cookItem.calories,

@@ -10,6 +10,7 @@ const Cooking = ({ cookingCount, cookingItems }) => {
       <table className="w-full border-collapse mt-4">
         <thead>
           <tr className="border-b text-gray-400">
+            <th className=" text-sm py-2">ID</th>
             <th className=" text-sm py-2">Name</th>
             <th className=" text-sm py-2">Time</th>
             <th className="text-sm py-2">Calories</th>

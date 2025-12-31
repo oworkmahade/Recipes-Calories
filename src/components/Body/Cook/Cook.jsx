@@ -9,7 +9,12 @@ import {
   getStoredCookingItems,
 } from "../../../utilities/localStorage";
 
-const Cook = ({ count, cookItems, handleCookDecrease }) => {
+const Cook = ({
+  count,
+  cookItems,
+  handleCookDecrease,
+  // handleRemoveClickedCookItem,
+}) => {
   const [cookingCount, setCookingCount] = useState(0);
   const [cookingItems, setCookingItems] = useState([]);
 
@@ -25,6 +30,7 @@ const Cook = ({ count, cookItems, handleCookDecrease }) => {
     newCookingItem(cookItem);
     handleCookDecrease();
     addCookingFoodToLs(cookItem);
+    // handleRemoveClickedCookItem(cookItem.recipe_id);
   };
 
   useEffect(() => {
@@ -46,9 +52,10 @@ const Cook = ({ count, cookItems, handleCookDecrease }) => {
       <table className="w-full border-collapse mt-4">
         <thead>
           <tr className="border-b text-gray-400">
-            <th className="text-left text-sm py-2">Name</th>
-            <th className="text-left text-sm py-2">Time</th>
-            <th className="text-left text-sm py-2">Calories</th>
+            <th className=" text-sm py-2">ID</th>
+            <th className=" text-sm py-2">Name</th>
+            <th className=" text-sm py-2">Time</th>
+            <th className="text-sm py-2">Calories</th>
             <th></th>
           </tr>
         </thead>

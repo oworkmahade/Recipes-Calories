@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 const Preparing = ({ cookItem, handleCookingCount }) => {
   return (
     <tr className="border-b">
+      <td className="text-sm py-3">{cookItem.recipe_id}</td>
       <td className="text-sm py-3">{cookItem.recipe_name}</td>
 
       <td className="text-sm py-3">{cookItem.preparing_time} minutes</td>
