@@ -60,6 +60,23 @@ const addFoodsToLs = (food) => {
   localStorage.setItem("cookItems", JSON.stringify(storedItems));
 };
 
+const getStoredCookingItems = () => {
+  const storedCookingItems =
+    JSON.parse(localStorage.getItem("cookingItems")) || [];
+  return storedCookingItems;
+};
+
+const addCookingFoodToLs = (cookItem) => {
+  const storedItems = getStoredCookingItems();
+  storedItems.push({
+    recipe_name: cookItem.recipe_name,
+    preparing_time: cookItem.preparing_time,
+    calories: cookItem.calories,
+  });
+
+  localStorage.setItem("cookingItems", JSON.stringify(storedItems));
+};
+
 export {
   getStoredCountValue,
   addCountToLs,
@@ -67,4 +84,6 @@ export {
   getStoredCookItem,
   addCookingCountToLs,
   getStoredCookingCountValue,
+  addCookingFoodToLs,
+  getStoredCookingItems,
 };

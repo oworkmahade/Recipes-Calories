@@ -14,7 +14,12 @@ const Recipes = () => {
   const [foods, setFood] = useState([]);
   const [count, setCount] = useState(0);
   const [cookItems, setCookItems] = useState([]);
-  // const [cookingItems, setCookingItems] = useState([]);
+
+  const handleCookDecrease = () => {
+    const newCookingCount = count - 1;
+    setCount(newCookingCount);
+    addCountToLs(newCookingCount);
+  };
 
   useEffect(() => {
     fetch("foods.json")
@@ -57,7 +62,11 @@ const Recipes = () => {
       </p>
       <div className="md:flex md:flex-row md:gap-4 justify-between">
         <RecipesCarts handleCount={handleCount} foods={foods}></RecipesCarts>
-        <Cook count={count} cookItems={cookItems}></Cook>
+        <Cook
+          count={count}
+          cookItems={cookItems}
+          handleCookDecrease={handleCookDecrease}
+        ></Cook>
       </div>
     </div>
   );

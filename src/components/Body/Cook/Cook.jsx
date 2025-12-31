@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 import {
   addCookingCountToLs,
   getStoredCookingCountValue,
+  addCookingFoodToLs,
+  getStoredCookingItems,
 } from "../../../utilities/localStorage";
 
-const Cook = ({ count, cookItems }) => {
+const Cook = ({ count, cookItems, handleCookDecrease }) => {
   const [cookingCount, setCookingCount] = useState(0);
   const [cookingItems, setCookingItems] = useState([]);
 
@@ -15,18 +17,26 @@ const Cook = ({ count, cookItems }) => {
     const newCookingItem = [...cookingItems, cookItem];
     setCookingItems(newCookingItem);
   };
-
+  // preparing button function
   const handleCookingCount = (cookItem) => {
     const newCount = cookingCount + 1;
     setCookingCount(newCount);
     addCookingCountToLs(newCount);
     newCookingItem(cookItem);
+    handleCookDecrease();
+    addCookingFoodToLs(cookItem);
   };
 
   useEffect(() => {
     const storedCookingCountValue = getStoredCookingCountValue();
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setCookingCount(storedCookingCountValue);
+  }, []);
+
+  useEffect(() => {
+    const storedCookingItemFromLs = getStoredCookingItems();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCookingItems(storedCookingItemFromLs);
   }, []);
 
   return (
