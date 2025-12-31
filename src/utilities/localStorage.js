@@ -1,8 +1,19 @@
-// get count value from local storage
+// get cook count value from local storage
 const getStoredCountValue = () => {
-  const storedCountValueString = localStorage.getItem("cookItem");
+  const storedCountValueString = localStorage.getItem("cookItemCount");
   if (storedCountValueString) {
     return JSON.parse(storedCountValueString);
+  }
+  return 0;
+};
+
+// get cooking count value from local storage
+
+const getStoredCookingCountValue = () => {
+  const storedCookingCountValueString =
+    localStorage.getItem("cookingItemCount");
+  if (storedCookingCountValueString) {
+    return JSON.parse(storedCookingCountValueString);
   }
   return 0;
 };
@@ -13,18 +24,30 @@ const getStoredCookItem = () => {
   return getStoredItems;
 };
 
-// save count to Local Store
+// save cook count to Local Store
 const saveCountToLs = (count) => {
   const countStringified = JSON.stringify(count);
-  localStorage.setItem("cookItem", countStringified);
+  localStorage.setItem("cookItemCount", countStringified);
 };
 
-// add count to local storage
+// add cook count to local storage
 const addCountToLs = (count) => {
   saveCountToLs(count);
 };
 
-// add count to local storage
+// save cooking count to LS
+
+const saveCookingCountToLs = (newCount) => {
+  const CookingCountStringified = JSON.stringify(newCount);
+  localStorage.setItem("cookingItemCount", CookingCountStringified);
+};
+
+// add cooking count to local store
+const addCookingCountToLs = (newCount) => {
+  saveCookingCountToLs(newCount);
+};
+
+// add food to local storage
 const addFoodsToLs = (food) => {
   //   console.log(food.recipe_name, food.preparing_time, food.calories);
   const storedItems = getStoredCookItem();
@@ -37,4 +60,11 @@ const addFoodsToLs = (food) => {
   localStorage.setItem("cookItems", JSON.stringify(storedItems));
 };
 
-export { getStoredCountValue, addCountToLs, addFoodsToLs, getStoredCookItem };
+export {
+  getStoredCountValue,
+  addCountToLs,
+  addFoodsToLs,
+  getStoredCookItem,
+  addCookingCountToLs,
+  getStoredCookingCountValue,
+};

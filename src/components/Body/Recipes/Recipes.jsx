@@ -14,6 +14,7 @@ const Recipes = () => {
   const [foods, setFood] = useState([]);
   const [count, setCount] = useState(0);
   const [cookItems, setCookItems] = useState([]);
+  // const [cookingItems, setCookingItems] = useState([]);
 
   useEffect(() => {
     fetch("foods.json")
