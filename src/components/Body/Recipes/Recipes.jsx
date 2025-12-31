@@ -14,10 +14,18 @@ const Recipes = () => {
   const [foods, setFood] = useState([]);
   const [count, setCount] = useState(0);
   const [cookItems, setCookItems] = useState([]);
+  const [wantToCookItems, setWantToCookItems] = useState([]);
 
-  // const handleRemoveClickedCookItem = (id) => {
-  //   console.log("removed item id: ", id);
-  // };
+  useEffect(() => {
+    setWantToCookItems(cookItems);
+  }, [cookItems]);
+
+  const handleRemoveClickedCookItem = (id) => {
+    const remainingItems = wantToCookItems.filter(
+      (item) => item.recipe_id !== id
+    );
+    setWantToCookItems(remainingItems);
+  };
 
   const handleCookDecrease = () => {
     const newCookingCount = count - 1;
@@ -68,9 +76,10 @@ const Recipes = () => {
         <RecipesCarts handleCount={handleCount} foods={foods}></RecipesCarts>
         <Cook
           count={count}
-          cookItems={cookItems}
+          // cookItems={cookItems}
+          wantToCookItems={wantToCookItems}
           handleCookDecrease={handleCookDecrease}
-          // handleRemoveClickedCookItem={handleRemoveClickedCookItem}
+          handleRemoveClickedCookItem={handleRemoveClickedCookItem}
         ></Cook>
       </div>
     </div>

@@ -7,13 +7,14 @@ import {
   getStoredCookingCountValue,
   addCookingFoodToLs,
   getStoredCookingItems,
+  removeCookItemFromLs,
 } from "../../../utilities/localStorage";
 
 const Cook = ({
   count,
-  cookItems,
+  wantToCookItems,
   handleCookDecrease,
-  // handleRemoveClickedCookItem,
+  handleRemoveClickedCookItem,
 }) => {
   const [cookingCount, setCookingCount] = useState(0);
   const [cookingItems, setCookingItems] = useState([]);
@@ -30,7 +31,8 @@ const Cook = ({
     newCookingItem(cookItem);
     handleCookDecrease();
     addCookingFoodToLs(cookItem);
-    // handleRemoveClickedCookItem(cookItem.recipe_id);
+    handleRemoveClickedCookItem(cookItem.recipe_id);
+    removeCookItemFromLs(cookItem.recipe_id);
   };
 
   useEffect(() => {
@@ -61,7 +63,7 @@ const Cook = ({
         </thead>
 
         <tbody>
-          {cookItems.map((cookItem, idx) => (
+          {wantToCookItems.map((cookItem, idx) => (
             <Preparing
               key={idx}
               cookItem={cookItem}

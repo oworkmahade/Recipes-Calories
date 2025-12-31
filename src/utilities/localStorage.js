@@ -61,6 +61,13 @@ const addFoodsToLs = (food) => {
   localStorage.setItem("cookItems", JSON.stringify(storedItems));
 };
 
+// remove cook item from local store
+const removeCookItemFromLs = (id) => {
+  const storedItems = getStoredCookItem();
+  const newStoredItems = storedItems.filter((item) => item.recipe_id !== id);
+  localStorage.setItem("cookItems", JSON.stringify(newStoredItems));
+};
+
 const getStoredCookingItems = () => {
   const storedCookingItems =
     JSON.parse(localStorage.getItem("cookingItems")) || [];
@@ -88,4 +95,5 @@ export {
   getStoredCookingCountValue,
   addCookingFoodToLs,
   getStoredCookingItems,
+  removeCookItemFromLs,
 };
