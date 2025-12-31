@@ -86,6 +86,18 @@ const addCookingFoodToLs = (cookItem) => {
   localStorage.setItem("cookingItems", JSON.stringify(storedItems));
 };
 
+// get preparing time from local storage
+const getTotalTimeFromLs = () => {
+  const storedPreparingTime =
+    JSON.parse(localStorage.getItem("preparingTime")) || 0;
+  return storedPreparingTime;
+};
+
+// add calories to ls
+const addTotalTimeToLs = (time) => {
+  localStorage.setItem("preparingTime", JSON.stringify(time));
+};
+
 export {
   getStoredCountValue,
   addCountToLs,
@@ -96,4 +108,6 @@ export {
   addCookingFoodToLs,
   getStoredCookingItems,
   removeCookItemFromLs,
+  addTotalTimeToLs,
+  getTotalTimeFromLs,
 };

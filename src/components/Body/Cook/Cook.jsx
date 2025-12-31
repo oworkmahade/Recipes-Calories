@@ -8,6 +8,8 @@ import {
   addCookingFoodToLs,
   getStoredCookingItems,
   removeCookItemFromLs,
+  addTotalTimeToLs,
+  getTotalTimeFromLs,
 } from "../../../utilities/localStorage";
 
 const Cook = ({
@@ -18,10 +20,29 @@ const Cook = ({
 }) => {
   const [cookingCount, setCookingCount] = useState(0);
   const [cookingItems, setCookingItems] = useState([]);
+  const [totalTime, setTotalTime] = useState(0);
+  const [totalCalories, setTotalCalories] = useState(0);
+
+  useEffect(() => {
+    const storedPreparingTime = getTotalTimeFromLs();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setTotalTime(storedPreparingTime);
+  }, []);
 
   const newCookingItem = (cookItem) => {
     const newCookingItem = [...cookingItems, cookItem];
     setCookingItems(newCookingItem);
+  };
+
+  const handleCookingPreparingTime = (preparingTime) => {
+    const newPreparingTime = totalTime + preparingTime;
+    setTotalTime(newPreparingTime);
+    addTotalTimeToLs(newPreparingTime);
+  };
+
+  const handleCalories = (calories) => {
+    const newCalories = totalCalories + calories;
+    setTotalCalories(newCalories);
   };
   // preparing button function
   const handleCookingCount = (cookItem) => {
@@ -33,6 +54,8 @@ const Cook = ({
     addCookingFoodToLs(cookItem);
     handleRemoveClickedCookItem(cookItem.recipe_id);
     removeCookItemFromLs(cookItem.recipe_id);
+    handleCookingPreparingTime(cookItem.preparing_time);
+    handleCalories(cookItem.calories);
   };
 
   useEffect(() => {
@@ -75,6 +98,8 @@ const Cook = ({
       <Cooking
         cookingCount={cookingCount}
         cookingItems={cookingItems}
+        totalTime={totalTime}
+        totalCalories={totalCalories}
       ></Cooking>
     </div>
   );
