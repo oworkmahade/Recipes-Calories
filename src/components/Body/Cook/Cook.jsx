@@ -81,7 +81,7 @@ const Cook = ({
 
   return (
     // cookItem
-    <div className="border-gray-400 border m-4 p-4 w-1/3 rounded-3xl">
+    <div className="border-gray-400 border m-4 p-4 w-full md:w-1/3 rounded-3xl">
       <h1 className="text-xl font-bold p-4 border-b">Want to cook: {count}</h1>
       <table className="w-full border-collapse mt-4">
         <thead>

@@ -13,15 +13,15 @@ const Banner = () => {
         <div className="hero-overlay rounded-2xl"></div>
         <div className="hero-content text-neutral-content text-center">
           <div className="w-3/4">
-            <h1 className="mb-5 text-4xl font-bold">
+            <h1 className="mb-5 text-xl md:text-4xl font-bold">
               Discover cooking classes that fit your style
             </h1>
-            <p className="mb-5 text-slate-400">
+            <p className="mb-5 text-sm md:text-md text-slate-400">
               Learn practical techniques, explore diverse cuisines, and build
               confidence in the kitchen. Whether beginner or enthusiast, this
               personalized experience helps you cook smarter.
             </p>
-            <div className="md:flex md:flex-row  md:gap-4 justify-center">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-4 justify-center items-center">
               <button className="btn btn-outline btn-success rounded-3xl p-4 bg-green-600 text-black font-semibold">
                 Explore Now
               </button>

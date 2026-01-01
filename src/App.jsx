@@ -7,7 +7,7 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <>
-      <div className="border-slate-300 border-2 w-full">
+      <div className="w-full">
         <NavBar></NavBar>
         <Banner></Banner>
         <Recipes></Recipes>

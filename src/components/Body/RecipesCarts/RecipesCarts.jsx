@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const RecipesCarts = ({ foods, handleCount }) => {
   return (
-    <div className=" w-2/3 recipes-grid ">
+    <div className="w-2/3 recipes-grid">
       {foods.map((food) => (
         <RecipesCart
           key={food.recipe_id}

@@ -41,7 +41,9 @@ const NavBar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-3xl font-bold">Recipes Calories</a>
+          <a className="btn btn-ghost text-xl md:text-3xl font-bold">
+            Recipes Calories
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -60,7 +62,7 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end md:flex md:flex-row md:gap-4">
-          <div className="Search">
+          <div className="hidden md:flex">
             <label className="input">
               <svg
                 className="h-[1em] opacity-50"
@@ -89,7 +91,7 @@ const NavBar = () => {
                 role="button"
                 className="btn btn-ghost btn-circle avatar"
               >
-                <div className="w-10 rounded-full">
+                <div className="w-10 rounded-full hidden md:flex">
                   <img
                     alt="Tailwind CSS Navbar component"
                     src="https://i.ibb.co.com/LdhPKfrb/main-image-hasan.jpg"

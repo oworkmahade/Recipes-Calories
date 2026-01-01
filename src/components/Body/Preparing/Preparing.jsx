@@ -13,7 +13,7 @@ const Preparing = ({ cookItem, handleCookingCount }) => {
       <td className="py-3">
         <button
           onClick={() => handleCookingCount(cookItem)}
-          className="bg-green-600 text-black text-sm px-4 py-1 rounded-full"
+          className="bg-green-600 text-black text-sm px-2 md:px-4 py-1 rounded-full"
         >
           Preparing
         </button>

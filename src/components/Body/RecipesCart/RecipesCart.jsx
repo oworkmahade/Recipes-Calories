@@ -14,11 +14,11 @@ const RecipesCart = ({ food, handleCount }) => {
   } = food;
   return (
     <div
-      className="rounded-3xl"
-      style={{ border: "1px solid gray", margin: "20px", padding: "10px" }}
+      className="rounded-3xl w-full "
+      style={{ border: "1px solid gray", margin: "20px", padding: "20px" }}
     >
       <img
-        className="rounded-3xl p-4 object-cover w-[300px] h-48"
+        className="rounded-3xl p-4 object-cover w-[400px] h-48"
         src={recipeImages[recipe_id]}
         alt={recipe_name}
       />
@@ -34,19 +34,19 @@ const RecipesCart = ({ food, handleCount }) => {
         </ul>
       </div>
 
-      <div className="md:flex md: flex-row justify-between items-center gap-2 mx-4 p-4 font-light">
-        <div className="md:flex md:flex-row justify-between items-center gap-2">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-2 mx-4 p-4 font-light">
+        <div className="flex md:flex-row justify-between items-center gap-2">
           <MdOutlineWatchLater /> <span> {preparing_time} min</span>
         </div>
 
-        <div className="md:flex md:flex-row justify-between items-center gap-2">
+        <div className="flex md:flex-row justify-between items-center gap-2">
           <RiFireLine /> <span>{calories} calories</span>{" "}
         </div>
       </div>
-      <div className="md:flex md:flex-row p-4">
+      <div className="flex md:flex-row p-4 justify-center md:justify-start">
         <button
           onClick={() => handleCount(food)}
-          className="btn btn-primary rounded-3xl p-4 bg-green-600 font-semibold"
+          className="btn btn-primary rounded-3xl p-4  bg-green-600 font-semibold text-md "
         >
           Want to Cook
         </button>

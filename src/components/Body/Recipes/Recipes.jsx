@@ -75,7 +75,7 @@ const Recipes = () => {
   }, []);
 
   return (
-    <div className="  p-4">
+    <div className="p-4">
       <h1 className="text-3xl font-bold">Our Recipes</h1>
       <p className="text-sm my-4 w-2/3 mx-auto font-light">
         Discover our restaurant recipes crafted with fresh ingredients and
@@ -83,7 +83,7 @@ const Recipes = () => {
         passion, creativity, and a perfect balance of taste that brings
         authentic dining experiences to your table.
       </p>
-      <div className="md:flex md:flex-row md:gap-4 justify-between">
+      <div className="flex flex-col md:flex-row md:gap-10 justify-between">
         <RecipesCarts handleCount={handleCount} foods={foods}></RecipesCarts>
         <Cook
           count={count}
